@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ship_stats" load_steps=2 format=3 uid="uid://bq4fl7gn8tgl0"]
+
+[ext_resource type="Script" path="res://Component/Ship_Stats.gd" id="1_c74eu"]
+
+[resource]
+script = ExtResource("1_c74eu")
+speed = 100
