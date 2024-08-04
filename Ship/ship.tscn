@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bedk3tway05xt"]
+[gd_scene load_steps=8 format=3 uid="uid://bedk3tway05xt"]
 
 [ext_resource type="Texture2D" uid="uid://b8hp32n74kr65" path="res://Asset/Asset/ship.png" id="1_eo5vm"]
 [ext_resource type="Script" path="res://Component/Move_Component.gd" id="2_tvjo5"]
+[ext_resource type="Script" path="res://Component/Move_Input_Component.gd" id="3_xuo7m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mwfn6"]
 atlas = ExtResource("1_eo5vm")
@@ -51,3 +52,7 @@ animation = &"center"
 [node name="move_component" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("2_tvjo5")
 actor = NodePath("..")
+
+[node name="move_input_component" type="Node" parent="." node_paths=PackedStringArray("movecomponent")]
+script = ExtResource("3_xuo7m")
+movecomponent = NodePath("../move_component")
