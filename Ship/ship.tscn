@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://bedk3tway05xt"]
+
+[ext_resource type="Texture2D" uid="uid://b8hp32n74kr65" path="res://Asset/Asset/ship.png" id="1_eo5vm"]
+[ext_resource type="Script" path="res://Component/Move_Component.gd" id="2_tvjo5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwfn6"]
+atlas = ExtResource("1_eo5vm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_resee"]
+atlas = ExtResource("1_eo5vm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2onh"]
+atlas = ExtResource("1_eo5vm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqugj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwfn6")
+}],
+"loop": true,
+"name": &"center",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_resee")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2onh")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="ship" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vqugj")
+animation = &"center"
+
+[node name="move_component" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("2_tvjo5")
+actor = NodePath("..")
